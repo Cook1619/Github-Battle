@@ -42,7 +42,7 @@ function getUserData(player) {
 
     return {
       profile: profile,
-      score: calculateScore(profile, repos);
+      score: calculateScore(profile, repos)
     }
   })
 }
