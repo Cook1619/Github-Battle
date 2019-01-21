@@ -46,15 +46,13 @@ Player.propTypes = {
 class Results extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       winner: null,
       loser: null,
       error: null,
-      loading: true
+      loading: true,
     }
   }
-
   componentDidMount() {
     var players = queryString.parse(this.props.location.search);
 
@@ -86,9 +84,11 @@ class Results extends React.Component {
     var winner = this.state.winner;
     var loser = this.state.loser;
     var loading = this.state.loading;
-    if (loading) {
-      return <p>Loading</p>
+
+    if (loading === true) {
+      return <p>Loading!</p>
     }
+
     if (error) {
       return (
         <div>
@@ -98,17 +98,17 @@ class Results extends React.Component {
       )
     }
     return (
-      <div className="row">
-          <Player 
-            label="Winner"
-            score={winner.score}
-            profile={winner.profile}
-          />
-          <Player 
-            label="Loser"
-            score={loser.score}
-            profile={loser.profile}
-          />
+      <div className='row'>
+        <Player
+          label='Winner'
+          score={winner.score}
+          profile={winner.profile}
+        />
+        <Player
+          label='Loser'
+          score={loser.score}
+          profile={loser.profile}
+        />
       </div>
     )
   }
